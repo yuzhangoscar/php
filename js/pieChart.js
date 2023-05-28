@@ -1,4 +1,7 @@
-document.addEventListener('processedDataEvent', function (event) {
+document.addEventListener('processedDataEvent', handler);
+document.addEventListener('retrieveDataEvent', handler);
+
+function handler (event) {
     destroyExistingCanvas();
 
     let data = JSON.parse(event.detail);
@@ -41,7 +44,7 @@ document.addEventListener('processedDataEvent', function (event) {
         }
         return color;
     }
-})
+};
 
 function destroyExistingCanvas() {
     let existingChart = Chart.getChart('expenseChart');
