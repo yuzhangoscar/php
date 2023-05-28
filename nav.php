@@ -4,7 +4,7 @@
     $thirdLink = isset($_POST['thirdLink']) && !empty($_POST['thirdLink']) ? $_POST['thirdLink'] : "Contact";
 ?>
     <nav>
-        <a href="home.html"><?php echo $firstLink?></a>
-        <a href="about.html"><?php echo $secondLink?></a>
-        <a href="contact.html"><?php echo $thirdLink?></a>
+        <a class = "navbar-brand" href="home.html"><?php echo $firstLink?></a>
+        <a class = "navbar-brand" href="about.html"><?php echo $secondLink?></a>
+        <a class = "navbar-brand" href="contact.html"><?php echo $thirdLink?></a>
     </nav>
