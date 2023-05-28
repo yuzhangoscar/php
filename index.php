@@ -29,7 +29,8 @@
         <input class="btn btn-primary" id="submit" type="submit" value="Submit">
     </form>
     
-    <canvas id="expenseChart"></canvas>
+    <canvas id="pieChart"></canvas>
+    <canvas id="stackedColumnChart"></canvas>
     <script src="./js/pieChart.js"></script>
 </body>
 </html>

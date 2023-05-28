@@ -1,12 +1,13 @@
 <?php
     require_once('connectToDB.php');
 
-    function logExpense($expense, $category, $table) {
+    function logExpense($expense, $category, $today, $table) {
         $conn = logIntoMySQLDB();
-        $sql = "INSERT INTO $table (category, expense) VALUES (?, ?)";
+
+        $sql = "INSERT INTO $table (category, expense, today) VALUES (?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $category, $expense);
+        $stmt->bind_param("sss", $category, $expense, $today);
 
         if ($stmt->execute()) {
         } else {

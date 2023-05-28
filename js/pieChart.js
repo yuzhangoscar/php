@@ -3,12 +3,34 @@ document.addEventListener('retrieveDataEvent', handler);
 
 function handler (event) {
     destroyExistingCanvas();
+    let data;
+    try{
+        data = JSON.parse(event.detail);
+    } catch(error) {
+        console.log(error);
+        data = {'':0}
+    }
 
-    let data = JSON.parse(event.detail);
+    const resultArray = data.reduce((accumulator, currentObject) => {
+        const { expense, category } = currentObject;
+
+        // Check if the category already exists in the accumulator array
+        const existingCategory = accumulator.find(item => item.category === category);
+
+        if (existingCategory) {
+            // If the category exists, add the expense to the existing total
+            existingCategory.expense = parseFloat(existingCategory.expense) + parseFloat(expense);
+        } else {
+            // If the category doesn't exist, create a new entry in the accumulator
+            accumulator.push({ expense, category });
+        }
+
+        return accumulator;
+    }, []);
 
     // Extract the categories and expenses from the results
-    let categories = [...new Set(Object.keys(data))];
-    let expenses = Object.values(data);
+    let categories = resultArray.map(item => item.category);;
+    let expenses = resultArray.map(item => item.expense);
 
     // Generate random colors for the pie slices
     let colors = [];
@@ -17,7 +39,7 @@ function handler (event) {
     }
 
     // Create the pie chart
-    let ctx = document.getElementById('expenseChart').getContext('2d');
+    let ctx = document.getElementById('pieChart').getContext('2d');
     let chart = new Chart(ctx, {
         type: 'pie',
         data: {
@@ -26,6 +48,43 @@ function handler (event) {
                 data: expenses,
                 backgroundColor: colors
             }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Total Expenses by Category'
+            }
+        }
+    });
+
+    // Extract the unique dates from the data
+    let dates = [...new Set(data.map(item => item.today))];
+
+    // Create an empty data structure to hold the expenses for each category and date
+    let expensesData = {};
+    for (let category of categories) {
+        expensesData[category] = Array(dates.length).fill(0);
+    }
+
+    // Process the data and populate the expensesData
+    for (let item of data) {
+        //let categoryIndex = categories.indexOf(item.category);
+        let dateIndex = dates.indexOf(item.today);
+        for (let eachCategory of categories) {
+            expensesData[eachCategory][dateIndex] = parseFloat(item.expense) + parseFloat(expensesData[eachCategory][dateIndex]);
+        }
+    }
+    // Create the stacked column chart
+    let ctx2 = document.getElementById('stackedColumnChart').getContext('2d');
+    let chart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: categories.map((category, index) => ({
+                label: category,
+                data: expensesData[category],
+                backgroundColor: colors[index],
+            })),
         },
         options: {
             title: {
