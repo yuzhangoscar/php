@@ -1,0 +1,9 @@
+# ignore directories
+node_modules/
+
+# ignore files
+*.log
+
+# ignore files with extensions
+*.tmp
+*.bak

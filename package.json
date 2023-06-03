@@ -1,0 +1,25 @@
+{
+  "name": "php",
+  "version": "0.1.0",
+  "description": "expense tracker",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuzhangoscar/php.git"
+  },
+  "author": "yz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuzhangoscar/php/issues"
+  },
+  "homepage": "https://github.com/yuzhangoscar/php#readme",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
+}
