@@ -88,6 +88,10 @@ function handler (event) {
             title: {
                 display: true,
                 text: 'Total Expenses by Category'
+            },
+            scales: {
+                x: {stacked: true},
+                y: {stacked: true}
             }
         }
     });
