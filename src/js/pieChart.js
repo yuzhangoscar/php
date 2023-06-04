@@ -68,11 +68,9 @@ function handler (event) {
 
     // Process the data and populate the expensesData
     for (let item of data) {
-        //let categoryIndex = categories.indexOf(item.category);
         let dateIndex = dates.indexOf(item.today);
-        for (let eachCategory of categories) {
-            expensesData[eachCategory][dateIndex] = parseFloat(item.expense) + parseFloat(expensesData[eachCategory][dateIndex]);
-        }
+        let category = item.category;
+        expensesData[category][dateIndex] = parseFloat(item.expense) + parseFloat(expensesData[category][dateIndex]);
     }
     // Create the stacked column chart
     let ctx2 = document.getElementById('stackedColumnChart').getContext('2d');
