@@ -106,8 +106,13 @@ function handler (event) {
 };
 
 function destroyExistingCanvas() {
-    let existingChart = Chart.getChart('expenseChart');
-    if (existingChart) {
-        existingChart.destroy();
+    let pieChart = Chart.getChart('pieChart');
+    let stackedColumnChart = Chart.getChart('stackedColumnChart');
+
+    if (pieChart) {
+        pieChart.destroy();
+    }
+    if (stackedColumnChart) {
+        stackedColumnChart.destroy();
     }
 }

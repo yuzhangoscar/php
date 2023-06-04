@@ -10,4 +10,4 @@
 
     logExpense($expense, $category, $today, $table);
     $rawData = returnTotalExpensePerCategory($table);
-    echo json_encode($sortedDataByCategory);
+    echo json_encode($rawData);
