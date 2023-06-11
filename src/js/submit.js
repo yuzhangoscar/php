@@ -1,4 +1,4 @@
-$(document).ready(function () {
+let addProcessDataEvent = () => $(document).ready(function () {
     $('#form').submit(function(event){
         event.preventDefault();
 
@@ -15,6 +15,7 @@ $(document).ready(function () {
             success: function (processedData) {
                 let event = new CustomEvent('processedDataEvent', { detail: processedData });
                 document.dispatchEvent(event); // Dispatch the event with the processed data
+                console.log(`retrieveDateEvent added`);
             },
             error: function () {
                 // Handle any error that occurs during the AJAX request
@@ -23,3 +24,5 @@ $(document).ready(function () {
         });
     });
 });
+
+export default addProcessDataEvent;

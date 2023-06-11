@@ -1,5 +1,4 @@
-document.addEventListener('processedDataEvent', handler);
-document.addEventListener('retrieveDataEvent', handler);
+import Chart from 'chart.js/auto';
 
 function handler (event) {
     destroyExistingCanvas();
@@ -29,7 +28,7 @@ function handler (event) {
     }, []);
 
     // Extract the categories and expenses from the results
-    let categories = resultArray.map(item => item.category);;
+    let categories = resultArray.map(item => item.category);
     let expenses = resultArray.map(item => item.expense);
 
     // Generate random colors for the pie slices
@@ -118,3 +117,5 @@ function destroyExistingCanvas() {
         stackedColumnChart.destroy();
     }
 }
+
+export default handler;
