@@ -5,7 +5,6 @@ let addRetrieveDataEvent =() => $(document).ready(function () {
             success: function (storedData) {
                 let event = new CustomEvent('retrieveDataEvent', { detail: storedData });
                 document.dispatchEvent(event); // Dispatch the event with the processed data
-                console.log(`retrieveDateEvent added`);
             },
             error: function () {
                 // Handle any error that occurs during the AJAX request
