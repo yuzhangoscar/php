@@ -27,8 +27,17 @@
         <input class="btn btn-primary" id="submit" type="submit" value="Submit">
     </form>
     
-    <canvas id="pieChart"></canvas>
-    <canvas id="stackedColumnChart"></canvas>
+    <div class="container text-center">
+        <div class="row row-cols-auto">
+            <div class="col">
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="col-6">
+                <canvas id="stackedColumnChart"></canvas>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
 
