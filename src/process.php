@@ -5,8 +5,8 @@
 
     $expense = $_POST['expense'];
     $category = $_POST['category'];
-    $table = "Expenses";
     $today = $_POST['date'];
+    $table = "Expenses";
 
     logExpense($expense, $category, $today, $table);
     $rawData = returnTotalExpensePerCategory($table);
