@@ -1,10 +1,15 @@
 <?php
     require_once('connectToDB.php');
 
-    function returnTotalExpensePerCategory($table) {
+    function returnTotalExpensePerCategory($month, $year, $table) {
+        $month = (string)$month;
+        $year = (string)$year;
         $conn = logIntoMySQLDB();
-        $sql = "SELECT * FROM $table";
-        $result = $conn->query($sql);
+        $stmt = $conn->prepare("SELECT * FROM {$table} WHERE YEAR(today) = ? AND MONTH(today) = ?");
+        $stmt->bind_param("ss", $year, $month);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             // Initialize an array to store the entries

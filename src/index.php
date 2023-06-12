@@ -18,18 +18,21 @@
         <input type="date" id="datepicker" name="datepicker" required>
         <label for="expense">expense</label>
         <input class="form-control" type="text" id="expense" name="expense" placeholder="Enter expense here" required><br><br>
+        <label>
+            <input type="radio" name="option" value="currentMonth" checked>
+            Show current month expense
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="option" value="customRange">
+            Use custom date range
+        </label>
         <div id="customDateRangeContainer" class="custom-date-range">
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" name="startDate">
-
             <label for="endDate">End Date:</label>
             <input type="date" id="endDate" name="endDate">
         </div>
-        <div>
-            <button id="dateInputToggleButton" type="button">Use Custom Date Range Instead</button>
-        </div>
-
-
         <label for="category">Choose a category:</label>
         <select id="category" name="category">
             <option value="Donation">Donation</option>

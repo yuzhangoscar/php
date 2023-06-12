@@ -1,18 +1,14 @@
 const toggleDateRange = function() {
     $(document).ready(function() {
-        $("#dateInputToggleButton").on("click", function() {
-            let datePickerElement = $("#datepicker");
+        $('input[name="option"]').on('click', function() {
             let customDateRangeContainer = $("#customDateRangeContainer");
+            let selectedOption = $('input[name="option"]:checked').val();
 
-            if ($(this).html() === "Use Custom Date Range Instead") {
-                datePickerElement.css("display", "none");
+            if (selectedOption === "customRange") {
                 customDateRangeContainer.css("display", "block");
-                $(this).html("Use single date instead");
             }
-            else {
-                datePickerElement.css("display", "block");
+            else if (selectedOption === "currentMonth") {
                 customDateRangeContainer.css("display", "none");
-                $(this).html("Use Custom Date Range Instead");
             }
         });
     });

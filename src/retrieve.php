@@ -3,5 +3,8 @@
 
     require_once('readFromDB.php');
 
-    $rawData = returnTotalExpensePerCategory($table);
+    $currentMonth = date('m'); 
+    $currentYear = date('Y');
+
+    $rawData = returnTotalExpensePerCategory($currentMonth, $currentYear, $table);
     echo json_encode($rawData);
