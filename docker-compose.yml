@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+
+    ports:
+      - 80:80
+    volumes:
+      - ../src:/src
+      - ../node_modules:/node_modules
+    depends_on:
+      - php
+
+  php:
+    image: php:7.4-fpm
+    
+    volumes:
+      - ../src:/src
