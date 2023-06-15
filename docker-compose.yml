@@ -3,18 +3,20 @@ version: '3'
 services:
   nginx:
     build:
-      context: ./nginx
+      context: ./lde/nginx
 
     ports:
       - 80:80
     volumes:
-      - ../src:/src
+      - ./www:/var/www/html
+      - ./www/errors:/etc/nginx/html
       - ../node_modules:/node_modules
     depends_on:
       - php
 
   php:
-    image: php:7.4-fpm
+    build:
+      context: ./lde/php-fpm
     
     volumes:
-      - ../src:/src
+      - ./www:/var/www/html
