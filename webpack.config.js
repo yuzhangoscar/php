@@ -2,7 +2,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry:  path.resolve(__dirname, 'www', 'js', 'index.js'),
   module: {
     rules: [
       {
@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'www', 'dist'),
   },
   devtool: 'source-map'
 };

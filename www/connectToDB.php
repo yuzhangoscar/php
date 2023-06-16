@@ -1,7 +1,7 @@
 <?php
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
-    $password = "";
+    $password = "toor";
     $database = "expense";
 
     function logIntoMySQLDB() {

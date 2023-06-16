@@ -20,3 +20,20 @@ services:
     
     volumes:
       - ./www:/var/www/html
+
+  db: 
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./mysql_logs:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_USER: yu
+      MYSQL_PASSWORD: toor
+
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - 8080:8080
