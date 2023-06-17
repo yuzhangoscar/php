@@ -6,7 +6,7 @@
     $expense = $_POST['expense'];
     $category = $_POST['category'];
     $today = $_POST['date'];
-    $table = "Expenses";
+    $table = "expenses";
     $currentMonth = date('m'); 
     $currentYear = date('Y');
 
