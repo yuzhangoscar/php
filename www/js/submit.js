@@ -5,6 +5,7 @@ let addProcessDataEvent = () => $(document).ready(function () {
         let expense = $('#expense').val();
         let category = $('#category').val();
         let date = $('#datepicker').val();
+        let option = $('[name="option"]').val();
 
         $.ajax({
             url: 'process.php',
@@ -12,7 +13,8 @@ let addProcessDataEvent = () => $(document).ready(function () {
             data: {
                 expense: expense,
                 category: category,
-                date: date
+                date: date,
+                option: option
             },
             success: function (processedData) {
                 let event = new CustomEvent('processedDataEvent', { detail: processedData });

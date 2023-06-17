@@ -1,5 +1,5 @@
 <?php
-    $table = "Expenses";
+    $table = "expenses";
 
     require_once('readFromDB.php');
 

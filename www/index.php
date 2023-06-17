@@ -14,7 +14,7 @@
     <?php require_once('nav.php'); ?>
     <h3 id="todayDateDisplay"> Today date is: </h3>
     <form id="form" action="process.php" method="POST">
-        <label for="datepicker">Select a Date:</label>
+        <label for="datepicker">Select a Date please:</label>
         <input type="date" id="datepicker" name="datepicker" required>
         <label for="expense">expense</label>
         <input class="form-control" type="text" id="expense" name="expense" placeholder="Enter expense here" required><br><br>
