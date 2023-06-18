@@ -1,5 +1,5 @@
 <?php
-    require_once('connectToDB.php');
+    require_once('databaseConnection.php');
 
     class expenseLogger {
         private $conn;

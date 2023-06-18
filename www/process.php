@@ -1,6 +1,6 @@
 <?php
-    require_once('writeToDB.php');
-    require_once('readFromDB.php');
+    require_once('databaseWriter.php');
+    require_once('databaseReader.php');
 
     $expense = $_POST['expense'];
     $category = $_POST['category'];

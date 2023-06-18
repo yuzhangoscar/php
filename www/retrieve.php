@@ -1,7 +1,7 @@
 <?php
     $table = "expenses";
 
-    require_once('readFromDB.php');
+    require_once('databaseReader.php');
 
     $currentMonth = date('m'); 
     $currentYear = date('Y');
