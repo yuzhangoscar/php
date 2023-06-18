@@ -1,17 +1,24 @@
 <?php
-    $servername = "db";
-    $username = "root";
-    $password = "toor";
-    $database = "expense";
+    class DatabaseConnection {
+        private $servername = "db";
+        private $username = "root";
+        private $password = "toor";
+        private $database = "expense";
+        private $conn;
 
-    function logIntoMySQLDB() {
-        global $servername, $username, $password, $database;
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        public function __construct() {
+            $this->connect();
         }
-        return $conn;
-    };
 
-    
+        private function connect() {
+            $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+            if ($this->conn->connect_error) {
+                die("connection failed: " . $this->conn->connect_error);
+            }
+        }
+
+        public function getConnection() {
+            return $this->conn;
+        }
+    }
+

@@ -1,5 +1,4 @@
-<?php 
-    require_once('connectToDB.php');
+<?php
     require_once('writeToDB.php');
     require_once('readFromDB.php');
 
@@ -11,10 +10,19 @@
     $currentMonth = date('m'); 
     $currentYear = date('Y');
 
-    logExpense($expense, $category, $today, $table);
+    $expenseLogger = new expenseLogger();
+    try {
+        $expenseLogger->logExpense($expense, $category, $today, $table);
+    }
+    catch(Exception $e) {
+        throw new Exception("Error logging expense into the db: ", $e->getMessage());
+    }
+
     if ($option === "currentMonth") {
         $currentMonth = date('m');
         $currentYear = date('Y');
     }
-    $rawData = returnTotalExpensePerCategory($currentMonth, $currentYear, $table);
+
+    $databaseReader = new DatabaseReader();
+    $rawData = $databaseReader->returnTotalExpensePerCategory($currentMonth, $currentYear, $table);
     echo json_encode($rawData);

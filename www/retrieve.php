@@ -6,5 +6,6 @@
     $currentMonth = date('m'); 
     $currentYear = date('Y');
 
-    $rawData = returnTotalExpensePerCategory($currentMonth, $currentYear, $table);
+    $databaseReader = new DatabaseReader();
+    $rawData = $databaseReader->returnTotalExpensePerCategory($currentMonth, $currentYear, $table);
     echo json_encode($rawData);
