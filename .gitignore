@@ -1,6 +1,7 @@
 # ignore directories
 node_modules/
 cypress/videos/
+db/
 
 # ignore files
 *.log

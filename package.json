@@ -9,10 +9,9 @@
   "scripts": {
     "test": "/opt/homebrew/var/www/node_modules/.bin/cypress run",
     "lint": "/opt/homebrew/var/www/node_modules/.bin/eslint .",
-    "webpack": "/opt/homebrew/var/www/node_modules/.bin/webpack",
     "testLinux": "/home/sesame/Documents/php/node_modules/cypress/bin/cypress run",
     "lintLinux": "/usr/bin/eslint .",
-    "webpackLinux": "/usr/local/bin/webpack"
+    "webpack": "./node_modules/webpack/bin/webpack.js"
   },
   "repository": {
     "type": "git",
@@ -29,9 +28,14 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^8.42.0",
     "php-loader": "^0.2.0",
+    "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "chart.js": "^4.3.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "tests/e2e"
   }
 }

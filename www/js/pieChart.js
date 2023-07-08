@@ -7,7 +7,7 @@ function handler (event) {
         data = JSON.parse(event.detail);
     } catch(error) {
         console.log(error);
-        data = {'':0}
+        data = [{'':0}];
     }
 
     const resultArray = data.reduce((accumulator, currentObject) => {
